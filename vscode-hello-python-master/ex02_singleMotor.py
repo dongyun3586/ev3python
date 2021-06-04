@@ -1,28 +1,33 @@
 #!/usr/bin/env python3
 from time import sleep
-from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C
+from ev3dev2.sound import Sound
+from ev3dev2.motor import LargeMotor, MediumMotor, OUTPUT_B, OUTPUT_C
 from ev3dev2.motor import SpeedRPS, SpeedRPM, SpeedDPS, SpeedDPM
 
+sound = Sound()
+mm = MediumMotor()
 lm = LargeMotor(OUTPUT_C)   # 연결 포트를 지정 안하면 기본 포트로 동작
 
+sound.speak('I am ready')
+
 #region 1. 시간으로 제어 => on_for_seconds(speed, seconds, brake=True, block=True)
-## 1-1.시간으로 제어
-lm.on_for_seconds(speed = 50, seconds=3)    # maximum speed(1050 deg/s)의 50% 속도로 3초 동안 회전
-sleep(1)
-lm.on_for_seconds(50, 3)   # 매개 변수 이름을 명시하지 않아도 된다. 
-sleep(1)
+# ## 1-1.시간으로 제어
+# lm.on_for_seconds(speed = 50, seconds=3)    # maximum speed(1050 deg/s)의 50% 속도로 3초 동안 회전
+# sleep(1)
+# lm.on_for_seconds(50, 3)   # 매개 변수 이름을 명시하지 않아도 된다. 
+# sleep(1)
 
-## 1-2.시간당 각도로 제어
-lm.on_for_seconds(speed=SpeedDPS(360), seconds=3)   # DPS(degrees per second) 초당 300도를 도는 속도로 3초 동안 회전
-sleep(1)
-lm.on_for_seconds(speed=SpeedDPM(360), seconds=3) # DPM(degrees per minute) 분당 36000도
-sleep(1)
+# ## 1-2.시간당 각도로 제어
+# lm.on_for_seconds(speed=SpeedDPS(360), seconds=3)   # DPS(degrees per second) 초당 300도를 도는 속도로 3초 동안 회전
+# sleep(1)
+# lm.on_for_seconds(speed=SpeedDPM(360), seconds=3) # DPM(degrees per minute) 분당 36000도
+# sleep(1)
 
-## 1-3.시간당 회전수로 제어 
-lm.on_for_seconds(speed=SpeedRPS(1), seconds=2)     # RPS(rotations per second) 초당 1바퀴를 도는 속도로 seconds 초 동안 회전
-sleep(1)    
-lm.on_for_seconds(speed=SpeedRPM(100), seconds=3)   # RPM(rotations per minute) 분당 100바퀴를 도는 속도 seconds 초 동안 회전
-sleep(1)
+# ## 1-3.시간당 회전수로 제어 
+# lm.on_for_seconds(speed=SpeedRPS(1), seconds=2)     # RPS(rotations per second) 초당 1바퀴를 도는 속도로 seconds 초 동안 회전
+# sleep(1)    
+# lm.on_for_seconds(speed=SpeedRPM(100), seconds=3)   # RPM(rotations per minute) 분당 100바퀴를 도는 속도 seconds 초 동안 회전
+# sleep(1)
 #endregion
 
 #region 2. 바퀴 회전으로 제어 => on_for_rotations(speed, rotations, brake=True, block=True)
@@ -57,3 +62,7 @@ sleep(1)
 # lm.on(speed=20)
 # lm.wait_until_not_moving()
 #endregion
+
+
+
+

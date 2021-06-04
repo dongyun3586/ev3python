@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-'''Hello to the world from ev3dev.org'''
-
 import os
 import sys
 import time

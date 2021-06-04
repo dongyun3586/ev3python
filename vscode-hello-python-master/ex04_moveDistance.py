@@ -55,13 +55,13 @@ def move(direction, speed, distance):
     elif direction == 'backward':
         tank_drive.on_for_degrees(-speed, -speed, degrees = 20.48 * distance)
 
-# 20의 속도로 5cm 전진 시키기
-move('forward', 20, 5)
+# # 20의 속도로 5cm 전진 시키기
+# move('forward', 20, 5)
 
-# 60의 속도로 10cm 전진 시키기
-move('forward', 60, 10)
+# # 60의 속도로 10cm 전진 시키기
+# move('forward', 60, 10)
 
-# 40의 속도로 15cm 후진 시키기
-move('backward', 40, 15)
+# # 40의 속도로 15cm 후진 시키기
+# move('backward', 40, 15)
 
 #endregion
